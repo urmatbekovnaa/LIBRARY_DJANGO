@@ -1,0 +1,15 @@
+{% include 'header.html' %}
+
+<div class="container">
+    {% for i in young %}
+    <div class="card" style="width: 18rem; margin: 0 auto;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_s8i9XVRA2gxqRVUI2XULMhCOZXPZEo1new&s" class="card-img-top" alt="Изображение">
+        <div class="card-body">
+            <h5 class="card-title">{{ i.title }}</h5>
+            <p class="card-text">{{ i.price }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'footer.html' %}

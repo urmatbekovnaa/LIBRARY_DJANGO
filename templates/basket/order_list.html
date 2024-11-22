@@ -1,0 +1,20 @@
+{% include 'header.html' %}
+
+<ul>
+
+    {% for i in orders %}
+
+    <li>
+        <h1>{{ i.name }}</h1>
+        <p>{{ i.phone_number }}</p>
+        <p>{{ i.email }}</p>
+        <p>{{ i.book }}</p>
+        <p>{{ i.created_at }}</p>
+    </li>
+    <button><a href="/order_list/{{ i.id }}/delete"delete></a></button>
+    <button><a href="/update_order/{{ i.id }}/refactor"refactor></a></button>
+
+    {% endfor %}
+</ul>
+
+{% include 'footer.html' %}
