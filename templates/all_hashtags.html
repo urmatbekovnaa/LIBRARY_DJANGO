@@ -2,9 +2,9 @@
 
 <div class="container my-5">
     <div class="d-flex justify-content-around mb-4">
-        <a href="{% url 'grand_tags' %}" class="btn btn-primary">для стариков</a>
-        <a href="{% url 'young_tags' %}" class="btn btn-secondary">для взрослых</a>
-        <a href="{% url 'children_tags' %}" class="btn btn-secondary">для детей</a>
+        <a href="{% url 'grand_list' %}" class="btn btn-primary">для стариков</a>
+        <a href="{% url 'young_list' %}" class="btn btn-secondary">для взрослых</a>
+        <a href="{% url 'children_list' %}" class="btn btn-secondary">для детей</a>
     </div>
 
     {% for i in hashtags_list %}
