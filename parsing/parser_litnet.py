@@ -23,6 +23,8 @@ def get_data(html):
         title_tag = item.find('div', class_='bw-title-wr')
         title = title_tag.get_text(strip=True) if title_tag else "Название неизвестно"
 
+        author_tag = item.find('div', class_='bw-author')
+        author = author_tag.get_text(strip=True) if author_tag else "Автор неизвестен"
 
         img_tag = item.find('div', class_='book-img transparent-marks')
         img_src = img_tag.find('img').get('src') if img_tag else None
@@ -30,6 +32,7 @@ def get_data(html):
 
         litnet_list.append({
             'title': title,
+            'author': author,
             'image': image,
         })
     return litnet_list
