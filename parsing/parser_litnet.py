@@ -20,8 +20,11 @@ def get_data(html):
     litnet_list = []
     for item in items:
 
-        title_tag = item.find('div', class_='bw-title-wr')
+        title_tag = item.find('div', class_='bw-title')
         title = title_tag.get_text(strip=True) if title_tag else "Название неизвестно"
+
+        genre_tag = item.find('div', class_='bl-genre')
+        genre = genre_tag.get_text(strip=True) if genre_tag else "Жанр неизвестен"
 
         author_tag = item.find('div', class_='bw-author')
         author = author_tag.get_text(strip=True) if author_tag else "Автор неизвестен"
@@ -32,6 +35,7 @@ def get_data(html):
 
         litnet_list.append({
             'title': title,
+            'genre': genre,
             'author': author,
             'image': image,
         })
