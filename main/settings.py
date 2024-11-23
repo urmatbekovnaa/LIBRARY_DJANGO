@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'main_page',
     'hashtags',
     'basket',
-    'cbv'
+    'cbv',
+    'parsing'
 ]
 
 MIDDLEWARE = [
