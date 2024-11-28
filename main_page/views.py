@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views import generic
 from . import models
-
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
 
 class SearchView(generic.ListView):
     template_name = 'book.html'
@@ -17,14 +18,14 @@ class SearchView(generic.ListView):
         context['q'] = self.request.GET.get('q')
         return context
 
-
+@method_decorator(cache_page(60 * 15), name="dispatch")
 class BookListView(generic.ListView):
     template_name = 'book.html'
     context_object_name = 'book_list'
     model = models.Books
 
     def get_queryset(self):
-        return models.Books.objects.filter().order_by('-id')
+        return self.model.objects.select_related().order_by('-id')
 
 class BookDetailView(generic.DetailView):
     template_name = 'book_detail.html'
