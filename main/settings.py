@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'parsing',
     'users',
     'debug_toolbar',
-    'django_extensions'
+    'django_extensions',
+    'mobile_devices',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +53,6 @@ MIDDLEWARE = [
     'users.middlewares.SalaryMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-
 ]
 
 ROOT_URLCONF = 'main.urls'

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Список устройств</title>
+</head>
+<body>
+    <h1>Список устройств</h1>
+    <form method="get">
+        <select name="category">
+            <option value="">Все категории</option>
+            {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Фильтровать</button>
+    </form>
+    <div>
+        {% for device in devices %}
+        <div>
+            <img src="{{ device.image.url }}" alt="{{ device.name }}" style="width: 150px;">
+            <h2><a href="{% url 'device_detail' device.id %}">{{ device.name }}</a></h2>
+            <p>Категория: {{ device.category.name }}</p>
+            <p>Цена: {{ device.price }} руб.</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
