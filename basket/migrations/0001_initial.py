@@ -10,19 +10,59 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('main_page', '0001_initial'),
+        ("main_page", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255, verbose_name='Имя заказчика')),
-                ('phone_number', models.CharField(max_length=15, validators=[django.core.validators.RegexValidator(regex='^\\+?1?\\d{9,15}$')], verbose_name='Телефон заказчика')),
-                ('email', models.EmailField(blank=True, max_length=254, null=True, verbose_name='Email заказчика')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Дата заказа')),
-                ('book', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='main_page.books', verbose_name='Выбранная книга')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=255, verbose_name="Имя заказчика"),
+                ),
+                (
+                    "phone_number",
+                    models.CharField(
+                        max_length=15,
+                        validators=[
+                            django.core.validators.RegexValidator(
+                                regex="^\\+?1?\\d{9,15}$"
+                            )
+                        ],
+                        verbose_name="Телефон заказчика",
+                    ),
+                ),
+                (
+                    "email",
+                    models.EmailField(
+                        blank=True,
+                        max_length=254,
+                        null=True,
+                        verbose_name="Email заказчика",
+                    ),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="Дата заказа"),
+                ),
+                (
+                    "book",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="main_page.books",
+                        verbose_name="Выбранная книга",
+                    ),
+                ),
             ],
         ),
     ]

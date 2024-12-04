@@ -8,35 +8,93 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, verbose_name='Название категории')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(max_length=100, verbose_name="Название категории"),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Feature',
+            name="Feature",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, verbose_name='Название особенности')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        max_length=100, verbose_name="Название особенности"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Device',
+            name="Device",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='devices/', verbose_name='Загрузите картинку')),
-                ('name', models.CharField(max_length=150, verbose_name='Название устройства')),
-                ('manufacturer', models.CharField(max_length=100, verbose_name='Производитель устройства')),
-                ('price', models.FloatField(verbose_name='Цена устройства')),
-                ('release_date', models.DateField(verbose_name='Дата выпуска')),
-                ('features', models.ManyToManyField(related_name='devices', to='mobile_devices.feature')),
-                ('сategory', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='devices', to='mobile_devices.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        upload_to="devices/", verbose_name="Загрузите картинку"
+                    ),
+                ),
+                (
+                    "name",
+                    models.CharField(
+                        max_length=150, verbose_name="Название устройства"
+                    ),
+                ),
+                (
+                    "manufacturer",
+                    models.CharField(
+                        max_length=100, verbose_name="Производитель устройства"
+                    ),
+                ),
+                ("price", models.FloatField(verbose_name="Цена устройства")),
+                ("release_date", models.DateField(verbose_name="Дата выпуска")),
+                (
+                    "features",
+                    models.ManyToManyField(
+                        related_name="devices", to="mobile_devices.feature"
+                    ),
+                ),
+                (
+                    "сategory",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="devices",
+                        to="mobile_devices.category",
+                    ),
+                ),
             ],
         ),
     ]

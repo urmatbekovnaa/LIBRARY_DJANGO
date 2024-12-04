@@ -8,27 +8,51 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('mobile_devices', '0001_initial'),
+        ("mobile_devices", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='device',
-            name='created_at',
+            model_name="device",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True, null=True),
         ),
         migrations.CreateModel(
-            name='Review_device',
+            name="Review_device",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateField(auto_now_add=True)),
-                ('description', models.TextField(verbose_name='Оставьте отзыв')),
-                ('mark', models.PositiveIntegerField(validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)], verbose_name='Укажите оценку от 1 до 5')),
-                ('review_devices', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='review_devices', to='mobile_devices.device')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateField(auto_now_add=True)),
+                ("description", models.TextField(verbose_name="Оставьте отзыв")),
+                (
+                    "mark",
+                    models.PositiveIntegerField(
+                        validators=[
+                            django.core.validators.MinValueValidator(1),
+                            django.core.validators.MaxValueValidator(5),
+                        ],
+                        verbose_name="Укажите оценку от 1 до 5",
+                    ),
+                ),
+                (
+                    "review_devices",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="review_devices",
+                        to="mobile_devices.device",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'комментарий',
-                'verbose_name_plural': 'комментарии',
+                "verbose_name": "комментарий",
+                "verbose_name_plural": "комментарии",
             },
         ),
     ]
